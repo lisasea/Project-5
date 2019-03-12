@@ -6,7 +6,7 @@ $.ajax({ //12 users from US
 
     const form = `<form action="#" method="get"> 
                     <input type="search" id="search-input" class="search-input" placeholder="Search...">
-                    <input type="submit" value="$#x1F50D;" id="search-submit" class="search-submit">
+                    <input type="submit" value="&#x1F50D;" id="search-submit" class="search-submit">
     </form>`;
 
     document.querySelector('.search-container').innerHTML = form; //append search box & submit button to page
@@ -37,9 +37,9 @@ $.ajax({ //12 users from US
                                     <p class="modal-text">${data.results[cardIndex].email}</p>
                                     <p class="modal-text cap">${data.results[cardIndex].location.city}</p>
                                     <hr>
-                                    <p class="modal-text">${data.results[cardInde].cell}</p>
+                                    <p class="modal-text">${data.results[cardIndex].cell}</p>
                                     <p class="modal-text cap">${data.results[cardIndex].location.street}, ${data.results[cardIndex].location.state}, ${data.results[cardIndex].nat} ${data.results[cardIndex].location.postcode}</p>
-                                    <p class-"modal-text">Birthday: ${data.results[cardIndex].dob.date.slice(0, 10)}</p>
+                                    <p class="modal-text">Birthday: ${data.results[cardIndex].dob.date.slice(0, 10)}</p>
                                 </div>
                             </div> 
                        </div>`; //close line 31 <div class="modal-container">
@@ -55,4 +55,3 @@ $.ajax({ //12 users from US
     } //close success line 4
 }) //close $.ajax
 
-//line 36 cap?  line 42 slice?
