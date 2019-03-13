@@ -1,12 +1,12 @@
 
-const searchFor = document.querySelector(".search-container"); // create search field w/ magnifying icon
+const searchFor = document.querySelector(".search-container"); // create search field w/ magnifying glass icon
 searchFor.innerHTML = `<form action="#" method-="get">
     <input type="search" id="search-input" class="search-input" placeholder="Search...">
     <input type="submit" value="&#x1F50D;" id+"search-submit" class="search-submit">
     </form>`;
 
 
-fetch('https://randomuser.me/api/?results=12&nat=us') // get 12 random users of U.S. nationality
+fetch('https://randomuser.me/api/?results=12&nat=us') // get 12 random users of U.S. nationality found on MDN
     .then(function(response) {
         return response.json();
     })
@@ -17,7 +17,6 @@ fetch('https://randomuser.me/api/?results=12&nat=us') // get 12 random users of 
     });
 
     
-
 function employeeCards(myJson) { // display 12 employees in cards
     for (let i = 0; i< myJson.results.length; i++) { //loop thru 12 random users create card gallery
         const gallery = `<div class="card">
@@ -31,9 +30,10 @@ function employeeCards(myJson) { // display 12 employees in cards
                         </div>
                     </div>`;
             
-        document.querySelector("#gallery").innerHTML += gallery;
+        document.querySelector("#gallery").innerHTML += gallery;   
         } 
 };
+
 
 function modalWindow(myJson) { // modal window that opens when employee is clicked and closes window when click on X
     $(".card").on("click", function() { // when a card is clicked show appropriate info
@@ -59,5 +59,6 @@ function modalWindow(myJson) { // modal window that opens when employee is click
             $('.modal-container').remove();
             $('.modal').remove();
         }) 
+        modalWindow(myJson).reset; //reset to make
     });
 }
