@@ -59,6 +59,6 @@ function modalWindow(myJson) { // modal window that opens when employee is click
             $('.modal-container').remove();
             $('.modal').remove();
         }) 
-        modalWindow(myJson).reset; //reset to make
+        modalWindow(myJson); 
     });
 }
