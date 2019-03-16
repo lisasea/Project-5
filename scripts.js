@@ -6,20 +6,20 @@ searchFor.innerHTML = `<form action="#" method-="get">
     </form>`;
 
 
-fetch('https://randomuser.me/api/?results=12&nat=us') // get 12 random users of U.S. nationality found on MDN
-    .then(function(response) {
-        return response.json();
+fetch('https://randomuser.me/api/?results=12&nat=us') // get 12 random users of U.S. nationality
+    .then(function(response) { //the promise is resolved 
+        return response.json(); //read and parse the data using json
     })
     .then(function(myJson) {
-        console.log(JSON.stringify(myJson));
-        employeeCards(myJson);
-        modalWindow(myJson);
+        console.log(JSON.stringify(myJson)); // changes returned data into a json string 
+        employeeCards(myJson); //calls employeeCards function
+        modalWindow(myJson);  // calls modalWindow function
     });
 
     
 function employeeCards(myJson) { // display 12 employees in cards
-    for (let i = 0; i< myJson.results.length; i++) { //loop thru 12 random users create card gallery
-        const gallery = `<div class="card">
+    for (let i = 0; i< myJson.results.length; i++) { //loop thru 12 random users using template literals to interpolate data creating a card for each into a gallery
+        const gallery = `<div class="card"> 
                         <div class="card-img-container">
                             <img class="card-img" src="${myJson.results[i].picture.large}" alt="profile picture">
                         </div>
@@ -30,12 +30,12 @@ function employeeCards(myJson) { // display 12 employees in cards
                         </div>
                     </div>`;
             
-        document.querySelector("#gallery").innerHTML += gallery;   
+        document.querySelector("#gallery").innerHTML += gallery; //change the text of the element with the id gallery  
         } 
 };
 
 
-function modalWindow(myJson) { // modal window that opens when employee is clicked and closes window when click on X
+function modalWindow(myJson) { // //builds the html for the modal window that opens when employee is clicked and closes window when click on X
     $(".card").on("click", function() { // when a card is clicked show appropriate info
         let cardIndex = $('.card').index(this); // gets the index of a specific card
         const modal = `<div class="modal-container"> 
@@ -53,7 +53,7 @@ function modalWindow(myJson) { // modal window that opens when employee is click
                                 </div>
                             </div> 
                        </div>`; 
-        document.querySelector("body").innerHTML += modal; //append modal to body of page
+        document.querySelector("body").innerHTML += modal; 
     
         $('.modal-close-btn').click(function () {
             $('.modal-container').remove();
